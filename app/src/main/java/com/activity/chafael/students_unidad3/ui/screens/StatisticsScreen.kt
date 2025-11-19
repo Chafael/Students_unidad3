@@ -25,7 +25,7 @@ fun StatisticsScreen(viewModel: StatisticsViewModel) {
         when (currentView) {
             StatsView.AVERAGE -> viewModel.loadAverageScore()
             StatsView.LAG -> viewModel.loadStudentWithLag()
-            StatsView.TOP3 -> {}
+            StatsView.TOP3 -> viewModel.loadGroups()
         }
     }
 

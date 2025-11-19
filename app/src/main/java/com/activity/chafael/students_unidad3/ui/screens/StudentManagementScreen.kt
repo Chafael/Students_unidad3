@@ -18,7 +18,7 @@ fun StudentManagementScreen(viewModel: StudentViewModel) {
     val students by viewModel.students.collectAsState()
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Gestión de estudiantes") }) }
+        topBar = { TopAppBar(title = { Text("Estudiantes") }) }
     ) { padding ->
         Column(
             modifier = Modifier

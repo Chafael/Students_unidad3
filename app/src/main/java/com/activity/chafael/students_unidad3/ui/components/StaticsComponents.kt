@@ -1,5 +1,6 @@
 package com.activity.chafael.students_unidad3.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,11 +13,13 @@ import com.activity.chafael.students_unidad3.data.Student
 
 @Composable
 fun AverageCard(average: Double) {
-    Card(
+    Surface(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        elevation = CardDefaults.cardElevation(4.dp)
+        color = MaterialTheme.colorScheme.surface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        shape = MaterialTheme.shapes.small
     ) {
         Column(
             modifier = Modifier
@@ -33,7 +36,7 @@ fun AverageCard(average: Double) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                "Rendimiento general de la clase",
+                "Rendimiento general de los grupos",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -51,11 +54,13 @@ fun LagStudentCard(student: Student?) {
             Text("No se encontraron estudiantes")
         }
     } else {
-        Card(
+        Surface(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            elevation = CardDefaults.cardElevation(4.dp)
+            color = MaterialTheme.colorScheme.surface,
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+            shape = MaterialTheme.shapes.small
         ) {
             Column(
                 modifier = Modifier
@@ -103,7 +108,7 @@ fun Top3List(
             expanded = expanded,
             onExpandedChange = { expanded = it }
         ) {
-            OutlinedTextField(
+            TextField(
                 value = selectedGroup.ifEmpty { "Seleccione un grupo\n" },
                 onValueChange = {},
                 readOnly = true,
@@ -111,7 +116,8 @@ fun Top3List(
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .menuAnchor()
+                    .menuAnchor(),
+                shape = MaterialTheme.shapes.extraSmall
             )
             ExposedDropdownMenu(
                 expanded = expanded,
@@ -158,9 +164,11 @@ fun Top3List(
 
 @Composable
 fun Top3Card(student: Student, rank: Int) {
-    Card(
+    Surface(
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(2.dp)
+        color = MaterialTheme.colorScheme.surface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        shape = MaterialTheme.shapes.small
     ) {
         Row(
             modifier = Modifier

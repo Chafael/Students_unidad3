@@ -44,7 +44,7 @@ class StatisticsViewModel(private val repository: StudentRepository) : ViewModel
         }
     }
 
-    private fun loadGroups() {
+    fun loadGroups() {
         viewModelScope.launch {
             _groups.value = repository.getAllGroups()
         }
